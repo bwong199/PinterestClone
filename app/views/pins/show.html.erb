@@ -1,30 +1,24 @@
-<div id="poin show row">
-	<div class="col-md-8 col-md-offset-2">
-		<div class"panel panel-default">
+<div class="col-md-6 col-md-offset-3">
+	<div class="row">
+		<div class="panel panel-default">
 			<div class="panel-heading pin_image">
 				<img src="<%= @pin.image.url(:medium) %>">
 			</div>
-			<div class="panel panel-body">
+			<div class="panel-body">
 				<h1> <%= @pin.title %></h1>
 				<p><%= @pin.description %></p>
 			</div>
-			<div class="panel panel-footer">
-				<div class="row">
-					<div class="col-md-6">
-						<p>Submitted by  <%= @pin.user.email %></p>
-					</div>
-					<div class="btn-group col-md-8">
-						<a href="/pins/<%= @pin.id %> /like" data-method='put' class="btn btn-default" class="btn btn-default"><span class="glyphicon glyphicon-thumbs-up"></span>  <%= @pin.get_upvotes.size %></a>
-						<a href="/pins/<%= @pin.id %>/edit" class="btn btn-default">Edit</a>
-						<a href="/pins/<%= @pin.id %>" class="btn btn-default" data-method="delete" data-confirm="Are you sure you want to delete this?">Delete</a>
-					</div>
-				</div>
+			<div class="panel-footer">
+				<p>Submitted by  <%= @pin.user.email %></p>
+				<% if user_signed_in? %>
+					<a href="/pins/<%= @pin.id %> /like" data-method='put' class="btn btn-default" class="btn btn-default"><span class="glyphicon glyphicon-thumbs-up"></span>  <%= @pin.get_upvotes.size %></a>
+					<a href="/pins/<%= @pin.id %>/edit" class="btn btn-default">Edit</a>
+					<a href="/pins/<%= @pin.id %>" class="btn btn-default" data-method="delete" data-confirm="Are you sure you want to delete this?">Delete</a>
+				<% end %> 
 			</div>
-
 		</div>
 	</div>
 </div>
-
 
 
 
