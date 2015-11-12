@@ -1,0 +1,6 @@
+<h1> <%= @pin.title %></h1>
+<p><%= @pin.description %></p>
+
+<a href="/">Back</a>
+<a href="/pins/<%= @pin.id %>/edit">Edit</a>
+<a href="/pins/<%= @pin.id %>" data-method="delete" data-confirm="Are you sure you want to delete this?">Delete</a>
