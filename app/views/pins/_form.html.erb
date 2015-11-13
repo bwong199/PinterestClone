@@ -1,0 +1,23 @@
+<form action="/pins" method="post">
+	<% if @pin.errors.any? %> 
+		<div id="errors">
+			<h2><%= pluralize(@pin.errors.count, "error") %> prevented this post from saving</h2>
+			<ul>
+				<% @pin.errors.full_messages.each do |msg| %>
+					<li><%= msg %></li>
+				<% end %>
+			</ul>
+		</div>
+	<% end %> 
+	<input type='hidden' name='authenticity_token' value='<%= form_authenticity_token %>'>
+	<label for="pin[title]">Title</label>
+	<br>
+	<input type="text" name="pin[title]" class="form-control">
+	<br>
+	<br>
+	<label for='pin[description]'>Description</label>
+	<br>
+	<textarea name="pin[description]" class="form-control"></textarea>
+	<br>
+	<input type="submit" value="Create Pin" class="btn btn-primary">
+</form>
